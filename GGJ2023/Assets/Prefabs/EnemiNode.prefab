@@ -191,9 +191,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GripTransform: {fileID: 5457794317176906899}
   ParentTransform: {fileID: 0}
+  status: 1
   used: 0
   RotationSpeed: 60
   _possibleChild: {fileID: 0}
+  _speed: 0
+  _rb: {fileID: 0}
+  _acceleration: 1
 --- !u!54 &5457794317874827593
 Rigidbody:
   m_ObjectHideFlags: 0
