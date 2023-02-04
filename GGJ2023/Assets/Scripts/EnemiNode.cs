@@ -42,12 +42,14 @@ public class EnemiNode : MonoBehaviour
     {
         Debug.Log("TriggerEnter");
 
-        if (_possibleChild == null)
+        EnemiNode n = other.transform.GetComponent<EnemiNode>();
+        if (n._possibleChild == null)
         {
-            EnemiNode n = other.transform.GetComponent<EnemiNode>();
-            if (n != null && !n.used)
+            Debug.Log(gameObject.transform.parent.name + " " + n);
+            if (n != null && !used)
             {
-                _possibleChild = other.transform.GetComponent<EnemiNode>();
+                n._possibleChild = this;
+                //_possibleChild = other.transform.GetComponent<EnemiNode>();
             }
         }
     }
@@ -61,7 +63,13 @@ public class EnemiNode : MonoBehaviour
     {
         Debug.Log("TriggerExit");
 
-        _possibleChild = null;
+        EnemiNode n = other.transform.GetComponent<EnemiNode>();
+        if (n != null)
+        {
+            //n._possibleChild = this;
+            n._possibleChild = null;
+            //_possibleChild = other.transform.GetComponent<EnemiNode>();
+        }
     }
     public void zigZag()
     {
