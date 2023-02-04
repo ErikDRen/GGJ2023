@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemiNode : MonoBehaviour
 {
+
     public Transform GripTransform;
     public Transform ParentTransform;
     [SerializeField]
@@ -17,8 +18,12 @@ public class EnemiNode : MonoBehaviour
     public Rigidbody _rb;
     public float _acceleration = 1;
     public int directionX = 1;
-    public int directionZ = 1;
+    public int directionZ = 1;    
     public bool isVertical;
+    public bool isStraight;
+    public int straight_DirectionX = 1;
+    public int straight_DirectionZ = 1;
+
     /// <summary>
     /// return any proxy node of this node
     /// </summary>
@@ -79,17 +84,35 @@ public class EnemiNode : MonoBehaviour
 
         Vector3 dir = new Vector3(0, 0, 0);
 
+
         dir.x += directionX * 1;
         dir.z += directionZ * 1;
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (isVertical)
+            if (isStraight)
             {
-            directionX = -directionX;
+                if (directionZ == 0)
+                {
+                    Debug.Log(straight_DirectionZ);
+                    directionZ = straight_DirectionZ;
+                    directionX = 0;
+                }
+                else
+                {
+                    directionX = straight_DirectionX;
+                    directionZ = 0;
+                }
             }
             else
             {
-                directionZ = -directionZ;
+                if (isVertical)
+                {
+                    directionX = -directionX;
+                }
+                else
+                {
+                    directionZ = -directionZ;
+                }
             }
         }
 
