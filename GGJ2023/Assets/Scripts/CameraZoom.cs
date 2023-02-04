@@ -19,7 +19,8 @@ public class CameraZoom : MonoBehaviour
     void Update()
     {
 
-        camFieldOfView += 10 * zoomSpeed;
+        Debug.Log(camFieldOfView);
+        //camFieldOfView += 10 * zoomSpeed;
         camFieldOfView = Mathf.Clamp(camFieldOfView, 30, 80);
 
         if (Input.GetKeyDown(KeyCode.A))
