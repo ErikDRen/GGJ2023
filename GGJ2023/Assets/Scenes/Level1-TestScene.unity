@@ -444,6 +444,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b51854b58ac364e865444d19fc55cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1682230099 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1262562835633301135, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
+  m_PrefabInstance: {fileID: 6501083733215980132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1718825276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1132,8 +1137,28 @@ PrefabInstance:
       value: -1.9069107
       objectReference: {fileID: 0}
     - target: {fileID: 1262562835633301134, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
+      propertyPath: _rb
+      value: 
+      objectReference: {fileID: 1682230099}
+    - target: {fileID: 1262562835633301134, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
+      propertyPath: _speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262562835633301134, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
+      propertyPath: status
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262562835633301134, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
+      propertyPath: direction
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262562835633301134, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
       propertyPath: RotationSpeed
       value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262562835633301134, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
+      propertyPath: _acceleration
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6501083733367646229, guid: 84e58a3405913ce4c9815785c2a89b50, type: 3}
       propertyPath: m_Name
