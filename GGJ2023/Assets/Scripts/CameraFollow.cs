@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    [SerializeField] private PlayerMovement player;
 
     private Vector3 cameraOffset;
 
@@ -15,13 +15,13 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraOffset = transform.position - player.transform.position;
+        cameraOffset = transform.position - player.CurrentNode.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = player.position + cameraOffset;
+        Vector3 newPos = player.CurrentNode.transform.position + cameraOffset;
         transform.position = Vector3.Slerp(transform.position, newPos, smoothness);
     }
 }
