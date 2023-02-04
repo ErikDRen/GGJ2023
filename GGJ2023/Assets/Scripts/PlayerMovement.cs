@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             EnemiNode newNode = CurrentNode.TryToInfect();
             if (newNode != null)
             {
-                newNode.ParentTransform = CurrentNode.GripTransform;
+                //newNode.ParentTransform = CurrentNode.GripTransform;
                 CurrentNode = newNode;
                 CurrentNode.used = true;
                 rotationSpeed = newNode.RotationSpeed;
