@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public EnemiNode CurrentNode;
 
     [SerializeField] private Transform _currentParent => transform.parent;
-    [SerializeField] private EnemiNode _currentNode;
     //[SerializeField] private status;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private bool _shouldRotate = false;
@@ -34,17 +33,15 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("should rotate");
         }
-        switch (_currentNode.status)
+        switch (CurrentNode.status)
         {
             case PlayerState.rotation:
-                
-                _currentNode.transform.RotateAround(_currentNode.ParentTransform.position, Vector3.up, rotationSpeed * Time.deltaTime);
+
+                CurrentNode.transform.RotateAround(CurrentNode.ParentTransform.position, Vector3.up, rotationSpeed * Time.deltaTime);
                 break;
             case PlayerState.zigzag:
-                _currentNode.zigZag();
+                CurrentNode.zigZag();
                 break;
-
-            CurrentNode.transform.RotateAround(CurrentNode.ParentTransform.position, Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
 
