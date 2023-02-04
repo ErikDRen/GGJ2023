@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private EnemiNode _currentNode;
+    public EnemiNode CurrentNode;
 
     [SerializeField] private float rotationSpeed;
     [SerializeField] private bool _shouldRotate = false;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         if (_shouldRotate)
         {
             Debug.Log("should rotate");
-            _currentNode.transform.RotateAround(_currentNode.ParentTransform.position, Vector3.up, rotationSpeed * Time.deltaTime);
+            CurrentNode.transform.RotateAround(CurrentNode.ParentTransform.position, Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -34,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
     public void ClickTrigger()
     {
         Debug.Log("On Click -> Try Inject Child");
-        if (_currentNode != null)
+        if (CurrentNode != null)
         {
-            EnemiNode newNode = _currentNode.TryToInfect();
+            EnemiNode newNode = CurrentNode.TryToInfect();
             if (newNode != null)
             {
-                newNode.ParentTransform = _currentNode.GripTransform;
-                _currentNode = newNode;
-                _currentNode.used = true;
+                newNode.ParentTransform = CurrentNode.GripTransform;
+                CurrentNode = newNode;
+                CurrentNode.used = true;
                 rotationSpeed = newNode.RotationSpeed;
                 _shouldRotate = true;
                 Debug.Log("Injection succesfull");
