@@ -16,7 +16,7 @@ public class EnemiNode : MonoBehaviour
     public float _speed;
     public Rigidbody _rb;
     public float _acceleration = 1;
-    private int direction = 1;
+    public int direction = 1;
     /// <summary>
     /// return any proxy node of this node
     /// </summary>
