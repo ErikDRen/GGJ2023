@@ -12,11 +12,13 @@ public class EnemiNode : MonoBehaviour
     public float RotationSpeed;
 
     [SerializeField] private EnemiNode _possibleChild;
-    [Header("Moves")]
+    [Header("Enemi Move")]
     public float _speed;
     public Rigidbody _rb;
     public float _acceleration = 1;
-    public int direction = 1;
+    public int directionX = 1;
+    public int directionZ = 1;
+    public bool isVertical;
     /// <summary>
     /// return any proxy node of this node
     /// </summary>
@@ -77,11 +79,18 @@ public class EnemiNode : MonoBehaviour
 
         Vector3 dir = new Vector3(0, 0, 0);
 
-        dir.x += 1 * direction;
-        dir.z += 1;
+        dir.x += directionX * 1;
+        dir.z += directionZ * 1;
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            direction = -direction;
+            if (isVertical)
+            {
+            directionX = -directionX;
+            }
+            else
+            {
+                directionZ = -directionZ;
+            }
         }
 
         dir = dir.x * transform.right + dir.z * transform.forward;

@@ -19,7 +19,7 @@ public class CameraZoom : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(camFieldOfView);
+        //Debug.Log(camFieldOfView);
         //camFieldOfView += 10 * zoomSpeed;
         camFieldOfView = Mathf.Clamp(camFieldOfView, 30, 80);
 
