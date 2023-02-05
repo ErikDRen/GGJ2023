@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class collisionManagement : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("MEEEEEEEEEEEEEEEEEEERDE J'AI PERDUUUUU");
             Destroy(gameObject);
         }
     }

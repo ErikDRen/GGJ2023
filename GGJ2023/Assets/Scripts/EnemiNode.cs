@@ -47,7 +47,7 @@ public class EnemiNode : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TriggerEnter");
+        //Debug.Log("TriggerEnter");
 
         EnemiNode n = other.transform.GetComponent<EnemiNode>();
         if (n._possibleChild == null)
@@ -68,7 +68,7 @@ public class EnemiNode : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("TriggerExit");
+        //Debug.Log("TriggerExit");
 
         EnemiNode n = other.transform.GetComponent<EnemiNode>();
         if (n != null)
@@ -119,7 +119,7 @@ public class EnemiNode : MonoBehaviour
         dir = dir.x * transform.right + dir.z * transform.forward;
         dir *= frameDependentSpeed;
         Vector3 TargetVelocity = new Vector3(dir.x, _rb.velocity.y, dir.z);
-        Debug.Log(dir);
+        //Debug.Log(dir);
         _rb.velocity = Vector3.Lerp(_rb.velocity, TargetVelocity, Time.deltaTime * _acceleration);
     }
 }

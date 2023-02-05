@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_shouldRotate)
         {
-            Debug.Log("should rotate");
+            //Debug.Log("should rotate");
         }
         switch (CurrentNode.status)
         {
