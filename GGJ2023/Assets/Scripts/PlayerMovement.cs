@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     //{
     //    status = PlayerState.rotation;
     //}
-    private void Update()
+    private void FixedUpdate()
     {
         if (!CanMove) return;
         switch (CurrentNode.status)

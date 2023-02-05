@@ -91,6 +91,41 @@ public class EnemiNode : MonoBehaviour
             //_possibleChild = other.transform.GetComponent<EnemiNode>();
         }
     }
+    private void Update()
+    {
+        if (status== PlayerMovement.PlayerState.zigzag)
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                if (isStraight)
+                {
+                    if (directionZ == 0)
+                    {
+                        Debug.Log(straight_DirectionZ);
+                        directionZ = straight_DirectionZ;
+                        directionX = 0;
+                    }
+                    else
+                    {
+                        directionX = straight_DirectionX;
+                        directionZ = 0;
+                    }
+                }
+                else
+                {
+                    if (isVertical)
+                    {
+                        directionX = -directionX;
+                    }
+                    else
+                    {
+                        directionZ = -directionZ;
+                    }
+                }
+            }
+        }
+
+    }
     public void zigZag()
     {
         float frameDependentSpeed = _speed * Time.deltaTime;
@@ -100,34 +135,7 @@ public class EnemiNode : MonoBehaviour
 
         dir.x += directionX * 1;
         dir.z += directionZ * 1;
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            if (isStraight)
-            {
-                if (directionZ == 0)
-                {
-                    Debug.Log(straight_DirectionZ);
-                    directionZ = straight_DirectionZ;
-                    directionX = 0;
-                }
-                else
-                {
-                    directionX = straight_DirectionX;
-                    directionZ = 0;
-                }
-            }
-            else
-            {
-                if (isVertical)
-                {
-                    directionX = -directionX;
-                }
-                else
-                {
-                    directionZ = -directionZ;
-                }
-            }
-        }
+
 
         dir = dir.x * transform.right + dir.z * transform.forward;
         dir *= frameDependentSpeed;
