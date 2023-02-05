@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemiNode : MonoBehaviour
 {
@@ -18,11 +19,13 @@ public class EnemiNode : MonoBehaviour
     public Rigidbody _rb;
     public float _acceleration = 1;
     public int directionX = 1;
-    public int directionZ = 1;    
+    public int directionZ = 1;
     public bool isVertical;
     public bool isStraight;
     public int straight_DirectionX = 1;
     public int straight_DirectionZ = 1;
+
+    [SerializeField] private UnityEvent onInfectedEvent;
 
     /// <summary>
     /// return any proxy node of this node
@@ -35,6 +38,12 @@ public class EnemiNode : MonoBehaviour
         if (_possibleChild != null)
         {
             node = _possibleChild;
+            if (_rb != null)
+            {
+                Debug.Log("azkdhazhfazihihefizehihofihhfzi");
+                _rb.velocity = Vector3.zero;
+            }
+            onInfectedEvent?.Invoke();
         }
 
         return node;
@@ -50,14 +59,18 @@ public class EnemiNode : MonoBehaviour
         //Debug.Log("TriggerEnter");
 
         EnemiNode n = other.transform.GetComponent<EnemiNode>();
-        if (n._possibleChild == null)
+        if (n != null)
         {
-            Debug.Log(gameObject.transform.parent.name + " " + n);
-            if (n != null && !used)
+            if (n._possibleChild == null)
             {
-                n._possibleChild = this;
-                //_possibleChild = other.transform.GetComponent<EnemiNode>();
+                Debug.Log(gameObject.transform.parent.name + " " + n);
+                if (n != null && !used)
+                {
+                    n._possibleChild = this;
+                    //_possibleChild = other.transform.GetComponent<EnemiNode>();
+                }
             }
+
         }
     }
 
