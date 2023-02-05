@@ -8,8 +8,7 @@ public class collisionManagement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("MEEEEEEEEEEEEEEEEEEERDE J'AI PERDUUUUU");
-            Destroy(gameObject);
+            GameManager.instance.TriggerEndGame(false);
         }
     }
 }
