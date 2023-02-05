@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _possibleChild;
     public EnemiNode CurrentNode;
 
+    public bool CanMove { get; set; } = true;
+
     [SerializeField] private Transform _currentParent => transform.parent;
     //[SerializeField] private status;
     [SerializeField] private float rotationSpeed;
@@ -29,10 +31,7 @@ public class PlayerMovement : MonoBehaviour
     //}
     private void Update()
     {
-        if (_shouldRotate)
-        {
-            Debug.Log("should rotate");
-        }
+        if (!CanMove) return;
         switch (CurrentNode.status)
         {
             case PlayerState.rotation:
